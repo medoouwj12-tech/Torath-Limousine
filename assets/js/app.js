@@ -14,7 +14,10 @@ const state = {
   category: 'all',
   searchQuery: '',
   passengerFilter: 'all',
-  selectedCarId: null
+  selectedCarId: null,
+  activeGalleryCarId: null,
+  activeGalleryImageIndex: 0,
+  cardImageIndexes: {}
 };
 
 // --- i18n Dictionary ---
@@ -349,7 +352,20 @@ function renderFleetGrid() {
       </div>
     `;
   }).join('');
+
+  // Attach swipe gesture listeners to car cards
+  filteredCars.forEach(car => {
+    const box = document.querySelector(`#car-card-${car.id} .car-image-box`);
+    if (box) {
+      setupTouchSwipe(
+        box,
+        () => changeCardImage(car.id, 1),
+        () => changeCardImage(car.id, -1)
+      );
+    }
+  });
 }
+
 
 // --- Event Listeners Setup ---
 function setupEventListeners() {
@@ -365,15 +381,34 @@ function setupEventListeners() {
     langToggleBtn.addEventListener('click', toggleLanguage);
   }
 
-  // Mobile Menu Toggle
+  // Mobile Menu Toggle & Overlay
   const menuToggleBtn = document.getElementById('menuToggleBtn');
   const navLinks = document.getElementById('navLinks');
+  const navOverlay = document.getElementById('navOverlay');
+
+  function closeMobileMenu() {
+    if (navLinks) navLinks.classList.remove('active');
+    if (navOverlay) navOverlay.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
   if (menuToggleBtn && navLinks) {
     menuToggleBtn.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
+      const isOpen = navLinks.classList.contains('active');
+      if (isOpen) {
+        closeMobileMenu();
+      } else {
+        navLinks.classList.add('active');
+        if (navOverlay) navOverlay.classList.add('active');
+      }
     });
+
+    if (navOverlay) {
+      navOverlay.addEventListener('click', closeMobileMenu);
+    }
+
     navLinks.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => navLinks.classList.remove('active'));
+      link.addEventListener('click', closeMobileMenu);
     });
   }
 
@@ -422,6 +457,19 @@ function setupEventListeners() {
   if (bookingForm) {
     bookingForm.addEventListener('submit', handleFormWhatsAppSubmit);
   }
+
+  // Setup Gallery Modal Touch Swipe
+  const galleryMainView = document.querySelector('.gallery-main-view');
+  if (galleryMainView) {
+    setupTouchSwipe(
+      galleryMainView,
+      () => navigateGallery(1),
+      () => navigateGallery(-1)
+    );
+  }
+
+  // Scroll Handler for Mobile Bottom Nav Highlight
+  window.addEventListener('scroll', updateActiveMobileNavItem);
 }
 
 // --- Populate Car Dropdowns ---
@@ -530,3 +578,191 @@ function handleFormWhatsAppSubmit(e) {
   closeBookingModal();
   window.open(waUrl, '_blank');
 }
+
+// --- Card Direct Image Change ---
+function changeCardImage(carId, direction) {
+  const car = FLEET_DATA.find(c => c.id === carId);
+  if (!car) return;
+
+  const images = car.images && car.images.length > 0 ? car.images : [car.image];
+  let currentIndex = state.cardImageIndexes[carId] || 0;
+  currentIndex = (currentIndex + direction + images.length) % images.length;
+  state.cardImageIndexes[carId] = currentIndex;
+
+  const mainImgEl = document.getElementById(`main-img-${carId}`);
+  if (mainImgEl) mainImgEl.src = images[currentIndex];
+
+  // Update thumbs active state on card
+  const cardEl = document.getElementById(`car-card-${carId}`);
+  if (cardEl) {
+    const thumbs = cardEl.querySelectorAll('.car-thumb');
+    thumbs.forEach((t, i) => t.classList.toggle('active', i === currentIndex));
+  }
+}
+
+function selectCardImage(carId, index) {
+  state.cardImageIndexes[carId] = index;
+  const car = FLEET_DATA.find(c => c.id === carId);
+  if (!car) return;
+
+  const images = car.images && car.images.length > 0 ? car.images : [car.image];
+  const mainImgEl = document.getElementById(`main-img-${carId}`);
+  if (mainImgEl) mainImgEl.src = images[index];
+
+  const cardEl = document.getElementById(`car-card-${carId}`);
+  if (cardEl) {
+    const thumbs = cardEl.querySelectorAll('.car-thumb');
+    thumbs.forEach((t, i) => t.classList.toggle('active', i === index));
+  }
+}
+
+// --- Lightbox Gallery Modal Functions ---
+function openGalleryModal(carId) {
+  const car = FLEET_DATA.find(c => c.id === carId);
+  if (!car) return;
+
+  state.activeGalleryCarId = carId;
+  state.activeGalleryImageIndex = state.cardImageIndexes[carId] || 0;
+
+  const backdrop = document.getElementById('galleryModalBackdrop');
+  const titleEl = document.getElementById('galleryCarTitle');
+  const badgeEl = document.getElementById('galleryCategoryBadge');
+
+  const isAr = state.lang === 'ar';
+  if (titleEl) titleEl.textContent = isAr ? car.name_ar : car.name_en;
+  if (badgeEl) {
+    badgeEl.textContent = car.category === 'wedding'
+      ? (isAr ? '🌸 زفاف العرايس VIP' : '🌸 Wedding VIP')
+      : (isAr ? '🚗 سفر المحافظات' : '🚗 Inter-City Travel');
+  }
+
+  updateGalleryModalView();
+
+  if (backdrop) {
+    backdrop.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+}
+
+function updateGalleryModalView() {
+  const car = FLEET_DATA.find(c => c.id === state.activeGalleryCarId);
+  if (!car) return;
+
+  const images = car.images && car.images.length > 0 ? car.images : [car.image];
+  const idx = state.activeGalleryImageIndex;
+
+  const mainImg = document.getElementById('galleryMainImg');
+  const counterText = document.getElementById('galleryCounterText');
+  const thumbsTrack = document.getElementById('galleryThumbsTrack');
+
+  const isAr = state.lang === 'ar';
+
+  if (mainImg) {
+    mainImg.style.opacity = '0.4';
+    mainImg.src = images[idx];
+    setTimeout(() => { mainImg.style.opacity = '1'; }, 50);
+  }
+
+  if (counterText) {
+    counterText.textContent = isAr
+      ? `صورة ${idx + 1} من ${images.length}`
+      : `Photo ${idx + 1} of ${images.length}`;
+  }
+
+  if (thumbsTrack) {
+    thumbsTrack.innerHTML = images.map((imgUrl, i) => `
+      <div class="gallery-thumb-item ${i === idx ? 'active' : ''}" onclick="selectGalleryImage(${i})">
+        <img src="${imgUrl}" alt="Thumbnail ${i + 1}">
+      </div>
+    `).join('');
+
+    // Auto scroll active thumbnail into view
+    const activeThumb = thumbsTrack.children[idx];
+    if (activeThumb) {
+      activeThumb.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    }
+  }
+}
+
+function navigateGallery(direction) {
+  const car = FLEET_DATA.find(c => c.id === state.activeGalleryCarId);
+  if (!car) return;
+
+  const images = car.images && car.images.length > 0 ? car.images : [car.image];
+  const total = images.length;
+  state.activeGalleryImageIndex = (state.activeGalleryImageIndex + direction + total) % total;
+  updateGalleryModalView();
+}
+
+function selectGalleryImage(index) {
+  state.activeGalleryImageIndex = index;
+  updateGalleryModalView();
+}
+
+function closeGalleryModal() {
+  const backdrop = document.getElementById('galleryModalBackdrop');
+  if (backdrop) {
+    backdrop.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+}
+
+function bookFromGallery() {
+  const carId = state.activeGalleryCarId;
+  closeGalleryModal();
+  if (carId) {
+    openBookingModalWithCar(carId);
+  } else {
+    openBookingModal();
+  }
+}
+
+// --- Touch Swipe Helper ---
+function setupTouchSwipe(element, onSwipeLeft, onSwipeRight) {
+  let startX = 0;
+  let startY = 0;
+
+  element.addEventListener('touchstart', (e) => {
+    startX = e.changedTouches[0].screenX;
+    startY = e.changedTouches[0].screenY;
+  }, { passive: true });
+
+  element.addEventListener('touchend', (e) => {
+    const endX = e.changedTouches[0].screenX;
+    const endY = e.changedTouches[0].screenY;
+
+    const diffX = endX - startX;
+    const diffY = endY - startY;
+
+    // Ensure horizontal swipe is dominant
+    if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 40) {
+      const isRtl = document.documentElement.getAttribute('dir') === 'rtl';
+      if (diffX > 0) {
+        isRtl ? onSwipeLeft() : onSwipeRight();
+      } else {
+        isRtl ? onSwipeRight() : onSwipeLeft();
+      }
+    }
+  }, { passive: true });
+}
+
+// --- Mobile Bottom Nav Active Link Handler ---
+function updateActiveMobileNavItem() {
+  const mobileNavItems = document.querySelectorAll('.mobile-nav-item[href]');
+  const scrollPos = window.scrollY + 200;
+
+  mobileNavItems.forEach(item => {
+    const targetId = item.getAttribute('href');
+    if (!targetId || !targetId.startsWith('#')) return;
+    const section = document.querySelector(targetId);
+    if (section) {
+      const top = section.offsetTop;
+      const height = section.offsetHeight;
+      if (scrollPos >= top && scrollPos < top + height) {
+        mobileNavItems.forEach(i => i.classList.remove('active'));
+        item.classList.add('active');
+      }
+    }
+  });
+}
+
