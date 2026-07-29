@@ -1,6 +1,6 @@
 /**
  * Torath Limousine - Complete Fleet Dataset
- * Names & groupings updated to match actual vehicle photos
+ * Names updated to match actual vehicle photos
  */
 
 const FLEET_DATA = [
@@ -150,6 +150,22 @@ const FLEET_DATA = [
     features_en: ["Red Flower Bouquet Décor", "Authentic Mercedes Prestige Grille", "VIP Leather Comfort Seats", "Hall & Photoshoot Transfer Service", "Smart Protocol Chauffeur"]
   },
   {
+    id: 11,
+    name_ar: "مرسيدس مايباخ S-Class زفاف ملكي فاخر",
+    name_en: "Mercedes-Maybach S-Class Royal Wedding",
+    category: "wedding",
+    image: "assets/images/cars/car-11.jpg",
+    images: ['assets/images/cars/car-11.jpg'],
+    passengers: 4,
+    luggage: 3,
+    transmission_ar: "أوتوماتيك 9G-Tronic",
+    transmission_en: "9G-Tronic Automatic",
+    price_ar: "أفخم سيارة زفاف في مصر",
+    price_en: "Egypt's Most Luxurious Wedding Car",
+    features_ar: ["شعار مايباخ الملكي على غطاء المحرك", "شبكة عمودية كروم فارهة مميزة", "أعلى مستوى فخامة في العالم", "لوحة تراث ليموزين الرسمية الذهبية", "الخيار الأول لكبار الشخصيات"],
+    features_en: ["Iconic Maybach Badge on Hood", "Distinguished Chrome Vertical Grille", "World's Highest Luxury Standard", "Official Gold Torath Limousine Plate", "Number One Choice for VIP Weddings"]
+  },
+  {
     id: 13,
     name_ar: "كرايسلر 300C أحمر زفاف ساحر",
     name_en: "Chrysler 300C Red Wedding Edition",
@@ -181,22 +197,6 @@ const FLEET_DATA = [
     features_ar: ["شبكة كروم ملكية وأنجل آي فاخرة", "ورد قلب أحمر رومانسي على الكابوتيه", "تزجيج داكن كامل للخصوصية", "كابينة VIP فخمة ونظيفة", "سائق بروتوكول بزي رسمي تشريفات"],
     features_en: ["Royal Chrome Grille & Angel Eye Lamps", "Romantic Red Heart Flower on Bonnet", "Full Dark Privacy Tint Windows", "Premium Clean VIP Cabin Interior", "Protocol-Uniformed Ceremonial Chauffeur"]
   },
-  {
-    id: 11,
-    name_ar: "مرسيدس مايباخ S-Class زفاف ملكي فاخر",
-    name_en: "Mercedes-Maybach S-Class Royal Wedding",
-    category: "wedding",
-    image: "assets/images/cars/car-11.jpg",
-    images: ['assets/images/cars/car-11.jpg'],
-    passengers: 4,
-    luggage: 3,
-    transmission_ar: "أوتوماتيك 9G-Tronic",
-    transmission_en: "9G-Tronic Automatic",
-    price_ar: "أفخم سيارة زفاف في مصر",
-    price_en: "Egypt's Most Luxurious Wedding Car",
-    features_ar: ["شعار مايباخ الملكي على غطاء المحرك", "شبكة عمودية كروم فارهة مميزة", "أعلى مستوى فخامة في العالم", "لوحة تراث ليموزين الرسمية الذهبية", "الخيار الأول لكبار الشخصيات"],
-    features_en: ["Iconic Maybach Badge on Hood", "Distinguished Chrome Vertical Grille", "World's Highest Luxury Standard", "Official Gold Torath Limousine Plate", "Number One Choice for VIP Weddings"]
-  },
   // ─── TRAVEL CARS ────────────────────────────────────────────────────────────
   {
     id: 10,
@@ -204,7 +204,7 @@ const FLEET_DATA = [
     name_en: "Mercedes-Benz E250 AMG Silver VIP Travel",
     category: "travel",
     image: "assets/images/cars/car-10.jpg",
-    images: ['assets/images/cars/car-10.jpg', 'assets/images/cars/car-12.jpg', 'assets/images/cars/car-16.jpg'],
+    images: ['assets/images/cars/car-10.jpg'],
     passengers: 4,
     luggage: 4,
     transmission_ar: "أوتوماتيك 7G-Tronic",
@@ -220,7 +220,7 @@ const FLEET_DATA = [
     name_en: "Mercedes-Benz E250 AMG Grey Inter-City",
     category: "travel",
     image: "assets/images/cars/car-12.jpg",
-    images: ['assets/images/cars/car-12.jpg', 'assets/images/cars/car-10.jpg', 'assets/images/cars/car-16.jpg'],
+    images: ['assets/images/cars/car-12.jpg'],
     passengers: 4,
     luggage: 4,
     transmission_ar: "أوتوماتيك",
@@ -229,22 +229,6 @@ const FLEET_DATA = [
     price_en: "Fast & Comfortable Inter-City Travel",
     features_ar: ["حزمة AMG الرياضية الخارجية والداخلية", "هدوء وسلاسة في طرق السفر الطويلة", "تكييف ثلاثي المناطق فائق التبريد", "نظام ملاحة GPS ومساعدة الطريق", "سائق خبير يعرف كافة طرق الرحلات"],
     features_en: ["AMG Sport Package Interior & Exterior", "Smooth & Quiet Long-Distance Ride", "Triple Zone Premium AC System", "GPS Navigation & Driver Assistance", "Expert Driver for All Travel Routes"]
-  },
-  {
-    id: 16,
-    name_ar: "مرسيدس E-Class AMG فضي جانبي سفر",
-    name_en: "Mercedes-Benz E-Class AMG Silver Travel",
-    category: "travel",
-    image: "assets/images/cars/car-16.jpg",
-    images: ['assets/images/cars/car-16.jpg', 'assets/images/cars/car-10.jpg', 'assets/images/cars/car-12.jpg'],
-    passengers: 4,
-    luggage: 4,
-    transmission_ar: "أوتوماتيك",
-    transmission_en: "Automatic",
-    price_ar: "فخامة وسرعة لجميع الوجهات",
-    price_en: "Luxury Speed for All Destinations",
-    features_ar: ["عجلات AMG الرياضية الضخمة", "سقف بانوراما واسع للإضاءة الطبيعية", "مقعدان خلفيان VIP فائقا الراحة", "تكييف ممتاز وهواء نقي بالسيارة", "سفر لجميع محافظات مصر"],
-    features_en: ["Large AMG Alloy Sport Wheels", "Wide Panoramic Roof for Natural Light", "Two Rear VIP Executive Seats", "Excellent Climate & Fresh Air Cabin", "Travel to All Egypt Governorates"]
   },
   {
     id: 15,
@@ -263,12 +247,28 @@ const FLEET_DATA = [
     features_en: ["Exclusive Brabus Kit with Orange B Badge", "Distinctive Round LED Halogen Lamps", "Large Brabus Sport Alloy Tyres", "Roof-Mounted Power LED Light Bar", "Icon of Power & Luxury on Any Road"]
   },
   {
+    id: 16,
+    name_ar: "مرسيدس E-Class AMG فضي سفر فاخر",
+    name_en: "Mercedes-Benz E-Class AMG Silver Luxury Travel",
+    category: "travel",
+    image: "assets/images/cars/car-16.jpg",
+    images: ['assets/images/cars/car-16.jpg'],
+    passengers: 4,
+    luggage: 4,
+    transmission_ar: "أوتوماتيك",
+    transmission_en: "Automatic",
+    price_ar: "فخامة وسرعة لجميع الوجهات",
+    price_en: "Luxury Speed for All Destinations",
+    features_ar: ["عجلات AMG الرياضية الضخمة", "سقف بانوراما واسع للإضاءة الطبيعية", "مقعدان خلفيان VIP فائقا الراحة", "تكييف ممتاز وهواء نقي بالسيارة", "سفر لجميع محافظات مصر"],
+    features_en: ["Large AMG Alloy Sport Wheels", "Wide Panoramic Roof for Natural Light", "Two Rear VIP Executive Seats", "Excellent Climate & Fresh Air Cabin", "Travel to All Egypt Governorates"]
+  },
+  {
     id: 17,
     name_ar: "هيونداي إيلانترا أسود سفر وتنقلات",
     name_en: "Hyundai Elantra Black Travel Edition",
     category: "travel",
     image: "assets/images/cars/car-17.jpg",
-    images: ['assets/images/cars/car-17.jpg', 'assets/images/cars/car-21.jpg'],
+    images: ['assets/images/cars/car-17.jpg'],
     passengers: 4,
     luggage: 3,
     transmission_ar: "أوتوماتيك",
@@ -279,28 +279,12 @@ const FLEET_DATA = [
     features_en: ["Quiet Cabin with Excellent AC", "Spacious Boot for All Luggage", "Economic Fuel & Pricing Structure", "USB Charging Ports for All Passengers", "24/7 Available for All Governorates"]
   },
   {
-    id: 21,
-    name_ar: "هيونداي إيلانترا أسود توصيل مطارات",
-    name_en: "Hyundai Elantra Black Airport Transfer",
-    category: "travel",
-    image: "assets/images/cars/car-21.jpg",
-    images: ['assets/images/cars/car-21.jpg', 'assets/images/cars/car-17.jpg'],
-    passengers: 4,
-    luggage: 3,
-    transmission_ar: "أوتوماتيك",
-    transmission_en: "Automatic",
-    price_ar: "استقبال وتوصيل المطارات",
-    price_en: "Airport Pickup & Drop Service",
-    features_ar: ["استقبال من مطار القاهرة الدولي", "الوقت على الموعد دائماً", "سائق يحمل لافتة الاستقبال", "تكييف ممتاز وراحة تامة", "متاحة 24 ساعة يومياً"],
-    features_en: ["Cairo International Airport Pickup", "Always On-Time Arrivals", "Chauffeur with Greeting Sign", "Excellent AC & Total Comfort", "Available 24/7 Any Time"]
-  },
-  {
     id: 18,
     name_ar: "كيا سبورتاج أسود سفر وتنقلات",
     name_en: "Kia Sportage Black Travel Edition",
     category: "travel",
     image: "assets/images/cars/car-18.jpg",
-    images: ['assets/images/cars/car-18.jpg', 'assets/images/cars/car-24.jpg'],
+    images: ['assets/images/cars/car-18.jpg'],
     passengers: 4,
     luggage: 4,
     transmission_ar: "أوتوماتيك",
@@ -309,22 +293,6 @@ const FLEET_DATA = [
     price_en: "Economic & Comfortable SUV Travel",
     features_ar: ["لوحة تراث ليموزين الرسمية الذهبية", "تصميم كيا الجريء والعصري", "ارتفاع مناسب للطرق السريعة", "مساحة حقائب خلفية ممتازة", "سائق خبرة بجميع طرق مصر"],
     features_en: ["Official Gold Torath Limousine Plate", "Bold & Modern Kia Design", "High Ground Clearance for Roads", "Excellent Rear Luggage Space", "Experienced Driver on All Egypt Roads"]
-  },
-  {
-    id: 24,
-    name_ar: "كيا سبورتاج أبيض سفر ومحافظات",
-    name_en: "Kia Sportage White Inter-City Travel",
-    category: "travel",
-    image: "assets/images/cars/car-24.jpg",
-    images: ['assets/images/cars/car-24.jpg', 'assets/images/cars/car-18.jpg'],
-    passengers: 4,
-    luggage: 4,
-    transmission_ar: "أوتوماتيك",
-    transmission_en: "Automatic",
-    price_ar: "سفر الساحل والإسكندرية والصعيد",
-    price_en: "North Coast, Alex & Upper Egypt Trips",
-    features_ar: ["لون أبيض لؤلؤي نظيف ومريح", "فتحة سقف بانوراما لإضاءة طبيعية", "مقاعد مريحة لرحلات طويلة", "تكييف هواء بارد وفعال", "سائق أمين وخبير بالطرق"],
-    features_en: ["Pearl White Clean Comfortable Color", "Panoramic Sunroof for Natural Light", "Comfortable Seats for Long Trips", "Effective Cold Air Conditioning", "Honest Driver Expert in All Routes"]
   },
   {
     id: 19,
@@ -359,12 +327,28 @@ const FLEET_DATA = [
     features_en: ["Great Economic Transport Option", "Comfortable Seats & Excellent AC", "Airport, Station & Hotel Transfers", "Timely & Consistent Arrival", "Very Competitive Rates for All Trips"]
   },
   {
+    id: 21,
+    name_ar: "هيونداي إيلانترا أسود توصيل مطارات",
+    name_en: "Hyundai Elantra Black Airport Transfer",
+    category: "travel",
+    image: "assets/images/cars/car-21.jpg",
+    images: ['assets/images/cars/car-21.jpg'],
+    passengers: 4,
+    luggage: 3,
+    transmission_ar: "أوتوماتيك",
+    transmission_en: "Automatic",
+    price_ar: "استقبال وتوصيل المطارات",
+    price_en: "Airport Pickup & Drop Service",
+    features_ar: ["استقبال من مطار القاهرة الدولي", "الوقت على الموعد دائماً", "سائق يحمل لافتة الاستقبال", "تكييف ممتاز وراحة تامة", "متاحة 24 ساعة يومياً"],
+    features_en: ["Cairo International Airport Pickup", "Always On-Time Arrivals", "Chauffeur with Greeting Sign", "Excellent AC & Total Comfort", "Available 24/7 Any Time"]
+  },
+  {
     id: 22,
-    name_ar: "هيونداي توسان أبيض (موديل قديم) سفر",
-    name_en: "Hyundai Tucson White (Classic) Travel SUV",
+    name_ar: "هيونداي توسان أبيض كلاسيك سفر",
+    name_en: "Hyundai Tucson White Classic Travel SUV",
     category: "travel",
     image: "assets/images/cars/car-22.jpg",
-    images: ['assets/images/cars/car-22.jpg', 'assets/images/cars/car-23.jpg'],
+    images: ['assets/images/cars/car-22.jpg'],
     passengers: 4,
     luggage: 4,
     transmission_ar: "أوتوماتيك",
@@ -380,7 +364,7 @@ const FLEET_DATA = [
     name_en: "Hyundai Tucson White 2022 Modern Travel",
     category: "travel",
     image: "assets/images/cars/car-23.jpg",
-    images: ['assets/images/cars/car-23.jpg', 'assets/images/cars/car-22.jpg'],
+    images: ['assets/images/cars/car-23.jpg'],
     passengers: 4,
     luggage: 4,
     transmission_ar: "أوتوماتيك",
@@ -389,6 +373,22 @@ const FLEET_DATA = [
     price_en: "Modern Design for Comfortable Travel",
     features_ar: ["إضاءة LED مميزة وتصميم 2022 الجريء", "سقف بانوراما واسع للإضاءة", "مقاعد مريحة جداً لرحلات طويلة", "تكييف قوي ومنافذ شحن حديثة", "سفر لجميع محافظات مصر"],
     features_en: ["Distinctive LED Lights & Bold 2022 Design", "Panoramic Roof for Natural Light", "Very Comfortable Seats for Long Trips", "Powerful AC & Modern Charging Ports", "Travel to All Egyptian Governorates"]
+  },
+  {
+    id: 24,
+    name_ar: "كيا سبورتاج أبيض سفر ومحافظات",
+    name_en: "Kia Sportage White Inter-City Travel",
+    category: "travel",
+    image: "assets/images/cars/car-24.jpg",
+    images: ['assets/images/cars/car-24.jpg'],
+    passengers: 4,
+    luggage: 4,
+    transmission_ar: "أوتوماتيك",
+    transmission_en: "Automatic",
+    price_ar: "سفر الساحل والإسكندرية والصعيد",
+    price_en: "North Coast, Alex & Upper Egypt Trips",
+    features_ar: ["لون أبيض لؤلؤي نظيف ومريح", "فتحة سقف بانوراما لإضاءة طبيعية", "مقاعد مريحة لرحلات طويلة", "تكييف هواء بارد وفعال", "سائق أمين وخبير بالطرق"],
+    features_en: ["Pearl White Clean Comfortable Color", "Panoramic Sunroof for Natural Light", "Comfortable Seats for Long Trips", "Effective Cold Air Conditioning", "Honest Driver Expert in All Routes"]
   },
   {
     id: 25,
