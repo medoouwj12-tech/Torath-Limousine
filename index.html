@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تراث ليموزين | Torath Limousine - سيارات زفاف العرايس وسفر المحافظات</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="شركة تراث ليموزين لتأجير أرقى سيارات الليموزين، سيارات زفاف العرايس الملكية، وسفر وتنقلات جميع المحافظات والمطارات بأعلى جودة وأفضل أسعار في مصر. تواصل معنا: 01035192651">
+  <meta name="keywords" content="تراث ليموزين, ليموزين مصر, عربيات زفاف, سيارات افراح, ليموزين سفر, حجز ليموزين مطار القاهرة, مرسيدس زفاف, كرايسلر ليموزين, تويوتا هايس VIP">
+  <meta name="author" content="Torath Limousine">
+
+  <!-- OpenGraph Meta -->
+  <meta property="og:title" content="تراث ليموزين - الفخامة والراحة في خدمات الليموزين والزفاف">
+  <meta property="og:description" content="احجز سيارة زفافك الملكية أو رحلة سفرك بين المحافظات مع تراث ليموزين. أسطول 30 سيارة حديثة وسائقين محترفين.">
+  <meta property="og:image" content="assets/images/logo.jpg">
+  <meta property="og:type" content="website">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="assets/images/logo.jpg">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+  <!-- ==================== HEADER & NAVBAR ==================== -->
+  <header class="navbar" id="navbar">
+    <div class="container navbar-container">
+      <!-- Brand Logo -->
+      <a href="#home" class="brand-logo">
+        <img src="assets/images/logo.jpg" alt="تراث ليموزين Logo">
+        <span class="brand-title gold-text" data-i18n="brandName">تراث ليموزين</span>
+      </a>
+
+      <!-- Navigation Links -->
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home" class="nav-link" data-i18n="navHome">الرئيسية</a></li>
+        <li><a href="#fleet" class="nav-link" data-i18n="navFleet">أسطول السيارات</a></li>
+        <li><a href="#why-us" class="nav-link" data-i18n="navWhyUs">لماذا نحن</a></li>
+        <li><a href="#reviews" class="nav-link" data-i18n="navReviews">تقييمات العملاء</a></li>
+        <li><a href="#contact" class="nav-link" data-i18n="navContact">تواصل معنا</a></li>
+      </ul>
+
+      <!-- Actions (Lang, Theme, Book Button) -->
+      <div class="header-actions">
+        <!-- Language Switcher -->
+        <button class="icon-btn" id="langToggleBtn" title="تغيير اللغة / Switch Language">
+          <i class="fas fa-globe"></i>
+          <span id="langBtnText" style="font-size: 0.75rem; font-weight: 800; margin-inline-start: 4px;">English</span>
+        </button>
+
+        <!-- Dark/Light Theme Switcher -->
+        <button class="icon-btn" id="themeToggleBtn" title="الوضع الفاتح / الليلي">
+          <i class="fas fa-sun" id="themeIcon"></i>
+        </button>
+
+        <!-- Book CTA -->
+        <button class="btn-gold hidden-mobile" onclick="openBookingModal()">
+          <span data-i18n="bookNow">احجز الآن</span>
+          <i class="fas fa-calendar-check"></i>
+        </button>
+
+        <!-- Mobile Menu Toggle -->
+        <button class="menu-toggle" id="menuToggleBtn" aria-label="Toggle Menu">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== HERO SECTION ==================== -->
+  <section class="hero-section" id="home">
+    <div class="hero-overlay"></div>
+    <div class="container hero-content">
+      <div class="hero-logo-wrapper">
+        <img src="assets/images/logo.png" alt="شعار تراث ليموزين" class="hero-logo-img">
+      </div>
+      <div class="hero-badge" data-i18n="heroBadge">
+        <i class="fas fa-crown"></i> فخامة وأمان على مدار الساعة
+      </div>
+      <h1 class="hero-title">
+        <span class="gold-text" data-i18n="heroTitle">تجربة ليموزين فاخرة تناسب مقامك</span>
+      </h1>
+      <p class="hero-subtitle" data-i18n="heroSubtitle">
+        نوفر لك أرقى خدمات الليموزين وسيارات الزفاف وتنقلات المحافظات بأحدث أسطول وأعلى مستويات الرفاهية والدقة في المواعيد.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#fleet" class="btn-gold">
+          <span data-i18n="exploreFleet">استكشف أسطولنا (30 سيارة)</span>
+          <i class="fas fa-arrow-down"></i>
+        </a>
+        <button class="btn-outline-gold" onclick="openBookingModal()">
+          <span data-i18n="heroBadge">احجز رحلتك فوراً</span>
+          <i class="fab fa-whatsapp"></i>
+        </button>
+      </div>
+
+      <!-- Quick Booking Bar -->
+      <form class="hero-booking-bar" id="quickBookForm">
+        <div class="bar-field">
+          <label data-i18n="selectServiceType"><i class="fas fa-car-side"></i> نوع الخدمة</label>
+          <select id="quickServiceType">
+            <option value="wedding" data-i18n="serviceWedding">عربيات زفاف العرايس 🌸</option>
+            <option value="travel" data-i18n="serviceTravel">عربيات السفر للمحافظات 🚗</option>
+          </select>
+        </div>
+
+        <div class="bar-field">
+          <label><i class="fas fa-car"></i> اختر السيارة</label>
+          <select id="quickCarSelect">
+            <!-- Dynamically populated -->
+          </select>
+        </div>
+
+        <div class="bar-field">
+          <label data-i18n="pickupCity"><i class="fas fa-map-marker-alt"></i> مكان التحرك</label>
+          <input type="text" id="quickPickup" placeholder="القاهرة / الإسكندرية / ..." required>
+        </div>
+
+        <div class="bar-field">
+          <label data-i18n="destinationCity"><i class="fas fa-location-arrow"></i> الوجهة</label>
+          <input type="text" id="quickDestination" placeholder="اسم المحافظة / القاعة" required>
+        </div>
+
+        <button type="submit" class="btn-gold" style="height: 48px; margin-top: 1.2rem;">
+          <span data-i18n="bookNow">احجز الآن</span>
+          <i class="fab fa-whatsapp"></i>
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ==================== FLEET SHOWCASE ==================== -->
+  <section class="section" id="fleet">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge" data-i18n="fleetBadge">أسطول تراث ليموزين</span>
+        <h2 class="section-title gold-text" data-i18n="fleetTitle">اختر سيارتك المفضلة من أسطولنا الملكي</h2>
+        <p class="section-desc" data-i18n="fleetDesc">
+          أسطول مجهز بـ 30 سيارة حديثة ومصنفة خصيصاً لتلبية احتياجات الأفراح والمناسبات والسفر لجميع المحافظات.
+        </p>
+      </div>
+
+      <!-- Main Category Filter Tabs -->
+      <div class="filter-tabs">
+        <button class="tab-btn active" data-category="all">
+          <i class="fas fa-th-large"></i>
+          <span data-i18n="filterAll">الكل (30 سيارة)</span>
+        </button>
+        <button class="tab-btn" data-category="wedding">
+          <i class="fas fa-heart"></i>
+          <span data-i18n="filterWedding">عربيات زفاف العرايس 🌸</span>
+        </button>
+        <button class="tab-btn" data-category="travel">
+          <i class="fas fa-route"></i>
+          <span data-i18n="filterTravel">عربيات السفر لجميع المحافظات 🚗</span>
+        </button>
+      </div>
+
+      <!-- Controls & Search -->
+      <div class="fleet-controls">
+        <div class="search-input-group">
+          <i class="fas fa-search" style="color: var(--gold-primary);"></i>
+          <input type="text" id="searchInput" data-i18n-ph="searchCar" placeholder="ابحث عن سيارة...">
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 1rem;">
+          <select id="capacityFilter" style="background: var(--bg-input); border: 1px solid var(--border-color); color: var(--text-main); padding: 0.6rem 1rem; border-radius: var(--radius-full); outline: none; font-family: inherit; font-size: 0.9rem;">
+            <option value="all">سعة الركاب (الكل)</option>
+            <option value="4">حتى 4 ركاب (سيدان VIP)</option>
+            <option value="7">5 - 8 ركاب (SUV / ڤان)</option>
+            <option value="14">9+ ركاب (هايس / كوستر)</option>
+          </select>
+
+          <span class="fleet-counter" id="fleetCounter">30 / 30 سيارة</span>
+        </div>
+      </div>
+
+      <!-- Cars Grid -->
+      <div class="fleet-grid" id="fleetGrid">
+        <!-- Rendered dynamically via app.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== WHY CHOOSE US ==================== -->
+  <section class="section" id="why-us" style="background: var(--bg-secondary); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge" data-i18n="whyUsBadge">مميزات خدماتنا</span>
+        <h2 class="section-title gold-text" data-i18n="whyUsTitle">لماذا تراث ليموزين خيارك الأول؟</h2>
+        <p class="section-desc" data-i18n="whyUsDesc">
+          نلتزم بأعلى معايير الجودة والرفاهية لضمان رحلة مريحة وآمنة في كل الأوقات.
+        </p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-clock"></i></div>
+          <h3 class="feature-card-title" data-i18n="feature1Title">دقة متناهية بالمواعيد</h3>
+          <p class="feature-card-desc" data-i18n="feature1Desc">نصلك قبل موعدك لضمان وصولك في الوقت المحدد تماماً بدون أي تأخير.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-user-tie"></i></div>
+          <h3 class="feature-card-title" data-i18n="feature2Title">سائقون محترفون VIP</h3>
+          <p class="feature-card-desc" data-i18n="feature2Desc">نخبة من السائقين الخبراء بالطرق، بزي رسمي متميز وأخلاق عالية.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-shield-virus"></i></div>
+          <h3 class="feature-card-title" data-i18n="feature3Title">أسطول حديث ومعقم</h3>
+          <p class="feature-card-desc" data-i18n="feature3Desc">جميع السيارات موديلات حديثة ومجهزة بأحدث وسائل الراحة والترفيه.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-headset"></i></div>
+          <h3 class="feature-card-title" data-i18n="feature4Title">خدمة 24/7 ودعم مباشر</h3>
+          <p class="feature-card-desc" data-i18n="feature4Desc">فريق خدمة العملاء متواجد على مدار الساعة لتلبية كافة طلباتكم.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== TESTIMONIALS ==================== -->
+  <section class="section" id="reviews">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge" data-i18n="reviewsBadge">آراء عملائنا</span>
+        <h2 class="section-title gold-text" data-i18n="reviewsTitle">ماذا يقول عملاؤنا عن تراث ليموزين؟</h2>
+      </div>
+
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="stars-rating">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <p class="testimonial-text" data-i18n="review1">
+            "أفضل شركة ليموزين تعاملت معها! سيارة الزفاف مرسيدس S-Class كانت قمة في الفخامة وتزيين الورد كان رائعاً والسائق قمة في الرقي."
+          </p>
+          <div class="client-info">
+            <div class="client-avatar">أ.ن</div>
+            <div>
+              <div class="client-name" data-i18n="review1Name">أحمد ونهى</div>
+              <div class="client-role" data-i18n="review1Role">حجز سيارة زفاف</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="stars-rating">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <p class="testimonial-text" data-i18n="review2">
+            "سافرت معهم من القاهرة للأسكندرية بسيارة تويوتا هايس VIP.. الرحلة كانت مريحة جداً والتكييف ممتاز والسائق محترف."
+          </p>
+          <div class="client-info">
+            <div class="client-avatar">د.م</div>
+            <div>
+              <div class="client-name" data-i18n="review2Name">د. محمود العوضي</div>
+              <div class="client-role" data-i18n="review2Role">سفر عائلي للمحافظات</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="stars-rating">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <p class="testimonial-text" data-i18n="review3">
+            "خدمة توصيل المطار كانت دقيقة جداً والسيارة نظيفة جداً. شكراً تراث ليموزين على الاحترافية."
+          </p>
+          <div class="client-info">
+            <div class="client-avatar">م.ش</div>
+            <div>
+              <div class="client-name" data-i18n="review3Name">مهندس شريف رفعت</div>
+              <div class="client-role" data-i18n="review3Role">تنقلات رجال أعمال</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="footer" id="contact">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Col 1: Brand Info -->
+        <div>
+          <a href="#home" class="brand-logo" style="margin-bottom: 1.25rem;">
+            <img src="assets/images/logo.jpg" alt="Logo">
+            <span class="brand-title gold-text" data-i18n="brandName">تراث ليموزين</span>
+          </a>
+          <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7;" data-i18n="footerAbout">
+            تراث ليموزين هي الشركة الرائدة في تقديم خدمات الليموزين الفاخرة، سيارات الأفراح والزفاف، وتنقلات السفر بين جميع المحافظات بأعلى جودة وأفضل أسعار.
+          </p>
+          <div class="social-links">
+            <a href="https://wa.me/201035192651" target="_blank" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+            <a href="tel:01035192651" class="social-icon"><i class="fas fa-phone-alt"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+
+        <!-- Col 2: Quick Links -->
+        <div>
+          <h4 class="footer-col-title" data-i18n="quickLinks">روابط سريعة</h4>
+          <ul class="footer-links">
+            <li><a href="#home"><i class="fas fa-angle-left"></i> <span data-i18n="navHome">الرئيسية</span></a></li>
+            <li><a href="#fleet"><i class="fas fa-angle-left"></i> <span data-i18n="navFleet">أسطول السيارات (30 سيارة)</span></a></li>
+            <li><a href="#why-us"><i class="fas fa-angle-left"></i> <span data-i18n="navWhyUs">لماذا نحن</span></a></li>
+            <li><a href="#reviews"><i class="fas fa-angle-left"></i> <span data-i18n="navReviews">تقييمات العملاء</span></a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Contact Info -->
+        <div>
+          <h4 class="footer-col-title" data-i18n="contactUs">معلومات الاتصال</h4>
+          <ul class="footer-links">
+            <li>
+              <a href="https://wa.me/201035192651" target="_blank" style="font-weight: 700; color: var(--gold-primary);">
+                <i class="fab fa-whatsapp" style="font-size: 1.3rem;"></i>
+                <span data-i18n="phone">الهاتف / الواتساب: 01035192651</span>
+              </a>
+            </li>
+            <li>
+              <a href="tel:01035192651">
+                <i class="fas fa-phone"></i> 01035192651
+              </a>
+            </li>
+            <li>
+              <span style="color: var(--text-muted); display: flex; align-items: center; gap: 0.5rem;">
+                <i class="fas fa-map-marker-alt" style="color: var(--gold-primary);"></i>
+                <span data-i18n="address">جمهورية مصر العربية - خدمة تغطي جميع المحافظات</span>
+              </span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p data-i18n="copyright">جميع الحقوق محفوظة © 2026 تراث ليموزين (Torath Limousine).</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== STICKY FLOATING WHATSAPP BUTTON ==================== -->
+  <div class="whatsapp-float">
+    <div class="whatsapp-tooltip" data-i18n="waTooltip">تواصل معنا فوراً وحجز رحلتك 01035192651</div>
+    <a href="https://wa.me/201035192651?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20%D8%AA%D8%B1%D8%A7%D8%AB%20%D9%84%D9%8A%D9%85%D9%88%D8%B2%D9%8A%D9%86%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%AD%D8%AC%D8%B2%20%D8%B3%D9%8A%D8%A7%D8%B1%D8%A9." target="_blank" class="whatsapp-btn" aria-label="WhatsApp">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+  </div>
+
+  <!-- ==================== BOOKING MODAL ==================== -->
+  <div class="modal-backdrop" id="bookingModalBackdrop">
+    <div class="booking-modal">
+      <button class="close-modal-btn" onclick="closeBookingModal()">&times;</button>
+      
+      <h3 class="modal-title gold-text" data-i18n="modalTitle">تأكيد طلب الحجز</h3>
+      <p class="modal-subtitle" data-i18n="modalSubtitle">سيتم إرسال كافة تفاصيل الحجز فوراً عبر الواتساب للتأكيد السريع</p>
+
+      <form class="booking-form" id="bookingForm">
+        <div class="form-group form-full">
+          <label data-i18n="fullName"><i class="fas fa-user"></i> الاسم بالكامل</label>
+          <input type="text" id="customerName" placeholder="أدخل اسمك الكريم..." required>
+        </div>
+
+        <div class="form-group form-full">
+          <label data-i18n="phoneNumber"><i class="fas fa-phone"></i> رقم الهاتف / الواتساب</label>
+          <input type="tel" id="customerPhone" placeholder="01035192651" required>
+        </div>
+
+        <div class="form-group">
+          <label data-i18n="selectServiceType"><i class="fas fa-car-side"></i> نوع الخدمة</label>
+          <select id="modalServiceType">
+            <option value="wedding" data-i18n="serviceWedding">عربيات زفاف العرايس 🌸</option>
+            <option value="travel" data-i18n="serviceTravel">عربيات السفر للمحافظات 🚗</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label><i class="fas fa-car"></i> السيارة المختارة</label>
+          <select id="modalCarSelect">
+            <!-- Dynamically populated -->
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label data-i18n="pickupCity"><i class="fas fa-map-marker-alt"></i> مكان التحرك</label>
+          <input type="text" id="pickupLocation" placeholder="مثال: القاهرة / المعادي" required>
+        </div>
+
+        <div class="form-group">
+          <label data-i18n="destinationCity"><i class="fas fa-location-arrow"></i> الوجهة</label>
+          <input type="text" id="destinationLocation" placeholder="مثال: الإسكندرية / القاعة" required>
+        </div>
+
+        <div class="form-group">
+          <label data-i18n="pickupDate"><i class="fas fa-calendar-alt"></i> تاريخ الرحلة</label>
+          <input type="date" id="tripDate" required>
+        </div>
+
+        <div class="form-group">
+          <label data-i18n="pickupTime"><i class="fas fa-clock"></i> وقت التحرك</label>
+          <input type="time" id="tripTime" required>
+        </div>
+
+        <div class="form-group form-full">
+          <label data-i18n="notes"><i class="fas fa-edit"></i> ملاحظات إضافية / طلبات خاصة</label>
+          <textarea id="customerNotes" rows="2" placeholder="أي تفاصيل أخرى ترغب في إضافتها..."></textarea>
+        </div>
+
+        <div class="form-full" style="margin-top: 1rem;">
+          <button type="submit" class="btn-gold" style="width: 100%; height: 52px; font-size: 1.1rem;">
+            <span data-i18n="submitWhatsApp">إرسال الحجز عبر الواتساب 💬</span>
+          </button>
+        </div>
+  <!-- ==================== VEHICLE GALLERY LIGHTBOX MODAL ==================== -->
+  <div class="modal-backdrop" id="galleryModalBackdrop">
+    <div class="gallery-modal">
+      <button class="close-modal-btn" onclick="closeGalleryModal()">&times;</button>
+      
+      <div class="gallery-header">
+        <h3 class="gold-text" id="galleryCarTitle">معرض صور السيارة</h3>
+        <span class="gallery-badge" id="galleryCategoryBadge">زفاف العرايس</span>
+      </div>
+
+      <div class="gallery-main-view">
+        <button class="gallery-arrow prev" onclick="navigateGallery(-1)"><i class="fas fa-chevron-right"></i></button>
+        <div class="gallery-img-wrapper">
+          <img id="galleryMainImg" src="" alt="Car Photo View">
+        </div>
+        <button class="gallery-arrow next" onclick="navigateGallery(1)"><i class="fas fa-chevron-left"></i></button>
+      </div>
+
+      <div class="gallery-counter-bar">
+        <span id="galleryCounterText">صورة 1 من 4</span>
+      </div>
+
+      <div class="gallery-thumbs-track" id="galleryThumbsTrack">
+        <!-- Thumbnails inserted dynamically -->
+      </div>
+
+      <div class="gallery-actions">
+        <button class="btn-gold" id="galleryBookBtn" onclick="bookFromGallery()">
+          <span>احجز هذه السيارة الآن</span>
+          <i class="fab fa-whatsapp"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript Modules -->
+  <script src="assets/js/cars-data.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
